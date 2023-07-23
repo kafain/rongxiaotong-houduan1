@@ -35,6 +35,24 @@ public class OrderServiceImpl implements OrderService {
         PageInfo<Order> orderPageInfo = new PageInfo<>(goods);
         return orderPageInfo;
     }
+    //查询订单地址
+    @Override
+    public List<String> getOrderAddress() {
+        List<String> address = orderDao.getOrderAddress();
+        return address;
+    }
+    //查询商品id
+    @Override
+    public List<Integer> getGoodsOrderId() {
+        List<Integer> allId = orderDao.getGoodsOrderId();
+        return allId;
+    }
+    //查询需求id
+    @Override
+    public List<Integer> getNeedsOrderId() {
+        List<Integer> allId = orderDao.getNeedsOrderId();
+        return allId;
+    }
     //查询商品价格
     @Override
     public List<String> getGoodsPricesByStatus() {
@@ -44,7 +62,7 @@ public class OrderServiceImpl implements OrderService {
     //查询需求价格
     @Override
     public List<String> getNeedsPricesByStatus() {
-        List<String> price = orderDao.getGoodsOrdersByStatus();
+        List<String> price = orderDao.getNeedsOrdersByStatus();
         return price;
     }
     @Override

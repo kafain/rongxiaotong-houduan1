@@ -49,8 +49,24 @@ public class OrderController {
     @Autowired
     private SellPurchaseService sellPurchaseService;
 
+    //查询订单地址
+    @ApiOperation(value="查询订单地址")
+    @GetMapping("/address")
+    public List<String> getOrderAddress() {
+        List <String> address = orderService.getOrderAddress();
+        return  address;
+    }
+
+    //查询需求id
+    @ApiOperation(value="查询需求id")
+    @GetMapping("/needs/id")
+    public List<Integer> getNeedsOrderId() {
+        List <Integer> allId = orderService.getNeedsOrderId();
+        return  allId;
+    }
+
     //查询需求价格
-    @ApiOperation(value="查询商品价格")
+    @ApiOperation(value="查询需求价格")
     @GetMapping("/needs/price")
     public List<Double> getNeedsOrderPrices() {
         List<String> price = orderService.getNeedsPricesByStatus();
@@ -61,7 +77,13 @@ public class OrderController {
         }
         return doubleList;
     }
-
+    //查询商品id
+    @ApiOperation(value="查询商品id")
+    @GetMapping("/goods/id")
+    public List<Integer> getGoodsOrderId() {
+        List <Integer> allId = orderService.getGoodsOrderId();
+        return  allId;
+    }
     //查询商品价格
     @ApiOperation(value="查询商品价格")
     @GetMapping("/goods/price")

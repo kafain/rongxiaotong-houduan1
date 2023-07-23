@@ -31,4 +31,12 @@ public interface OrderDao{
     List<Order> selectAllNeeds(Order order);
 
     List<String> getGoodsOrdersByStatus();
+
+    List<String> getNeedsOrdersByStatus();
+
+    List<Integer> getNeedsOrderId();
+
+    List<Integer> getGoodsOrderId();
+
+    List<String> getOrderAddress();
 }

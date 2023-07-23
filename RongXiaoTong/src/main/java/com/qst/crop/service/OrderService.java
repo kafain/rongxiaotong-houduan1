@@ -34,4 +34,10 @@ public interface OrderService {
     List<String> getGoodsPricesByStatus() ;
 
     List<String> getNeedsPricesByStatus();
+
+    List<Integer> getNeedsOrderId();
+
+    List<Integer> getGoodsOrderId();
+
+    List<String> getOrderAddress();
 }

@@ -330,4 +330,24 @@ order by order_status
         where type='needs'
         order by update_time desc
     </select>
+    <select id="getNeedsOrderId" resultType="int">
+        select order_id
+        <include refid="Base_Column_List" />
+        from tb_order
+        where type='needs'
+        order by update_time desc
+    </select>
+    <select id="getGoodsOrderId" resultType="int">
+        select order_id
+        <include refid="Base_Column_List" />
+        from tb_order
+        where type='goods'
+        order by update_time desc
+    </select>
+    <select id="getOrderAddress" resultType="String">
+        select address
+        <include refid="Base_Column_List" />
+        from tb_order
+        order by update_time desc
+    </select>
 </mapper>
