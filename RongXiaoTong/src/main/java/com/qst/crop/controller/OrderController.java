@@ -43,7 +43,6 @@ public class OrderController {
     @Autowired
     private SellPurchaseService sellPurchaseService;
 
-<<<<<<< Updated upstream
     //查询订单地址
     @ApiOperation(value="查询订单地址")
     @GetMapping("/address")
@@ -59,10 +58,8 @@ public class OrderController {
         List <Integer> allId = orderService.getNeedsOrderId();
         return  allId;
     }
-=======
     @Autowired
     private DiscussService discussService;
->>>>>>> Stashed changes
 
     //查询需求价格
     @ApiOperation(value="查询需求价格")

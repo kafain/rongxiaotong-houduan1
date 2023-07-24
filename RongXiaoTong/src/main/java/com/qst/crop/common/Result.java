@@ -62,4 +62,11 @@ public class Result<T> implements Serializable {
     public void setData(T data) {
         this.data = data;
     }
+    public static <T> Result<T> success(String message, T data) {
+        return new Result<>(true, 200, message, data);
+    }
+
+    public static <T> Result<T> error(String message, T data) {
+        return new Result<>(false, 500, message, data);
+    }
 }
