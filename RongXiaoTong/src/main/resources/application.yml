@@ -5,7 +5,11 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/rongxiaotong?serverTimezone=GMT%2B8&useUnicode=true&characterEncodeing=UTF-8&useSSL=false
     username: root
+<<<<<<< Updated upstream
     password: abc123
+=======
+    password: 123456
+>>>>>>> Stashed changes
   jackson:
     time-zone: GMT+8
   redis:
