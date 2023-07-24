@@ -10,4 +10,5 @@ public interface DiscussService {
 
     List<Discuss> selectByKnowledgeId(Integer knowledgeId);
 
+    List<Discuss> selectByOrderId(Integer id);
 }

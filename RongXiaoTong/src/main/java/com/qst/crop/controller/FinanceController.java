@@ -181,7 +181,6 @@ public class FinanceController {
     @ApiOperation(value = "查询银行情报")
     @GetMapping("/selectbank")
     public Result selectbank() {
-
         List<Bank> banks = bankService.selectAllBank();
         return new Result(true, StatusCode.OK, "查询成功", banks);
 

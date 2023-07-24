@@ -27,4 +27,10 @@ public class DiscussServiceImpl implements DiscussService {
         return Discuss;
     }
 
+    @Override
+    public List<Discuss> selectByOrderId(Integer orderId) {
+        List<Discuss> Discuss = discussDao.selectByOrderId(orderId);
+        return Discuss;
+    }
+
 }

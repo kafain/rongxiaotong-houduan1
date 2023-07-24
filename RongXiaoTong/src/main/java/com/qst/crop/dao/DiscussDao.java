@@ -11,4 +11,5 @@ public interface DiscussDao {
 
     List<Discuss> selectByKnowledgeId(@Param("knowledgeId") Integer knowledgeId);
 
+    List<Discuss> selectByOrderId(Integer orderId);
 }

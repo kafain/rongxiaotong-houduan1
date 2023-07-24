@@ -6,6 +6,8 @@ import java.util.Date;
 
 public class Discuss {
 
+    private Integer orderId;
+
     private Integer discussId;
 
     private Integer knowledgeId;
@@ -16,6 +18,14 @@ public class Discuss {
     private String content;
 
     private Date createTime;
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
 
     public Integer getDiscussId() {
         return discussId;

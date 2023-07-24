@@ -2,16 +2,10 @@ package com.qst.crop.controller;
 
 import com.qst.crop.common.Result;
 import com.qst.crop.common.StatusCode;
-import com.qst.crop.entity.Order;
-import com.qst.crop.entity.Purchase;
-import com.qst.crop.entity.PurchaseDetail;
-import com.qst.crop.entity.SellPurchase;
+import com.qst.crop.entity.*;
 import com.qst.crop.model.MyPurchase;
-import com.qst.crop.service.OrderService;
-import com.qst.crop.service.PurchaseDetailService;
-import com.qst.crop.service.PurchaseService;
+import com.qst.crop.service.*;
 import com.github.pagehelper.PageInfo;
-import com.qst.crop.service.SellPurchaseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +43,7 @@ public class OrderController {
     @Autowired
     private SellPurchaseService sellPurchaseService;
 
+<<<<<<< Updated upstream
     //查询订单地址
     @ApiOperation(value="查询订单地址")
     @GetMapping("/address")
@@ -64,6 +59,10 @@ public class OrderController {
         List <Integer> allId = orderService.getNeedsOrderId();
         return  allId;
     }
+=======
+    @Autowired
+    private DiscussService discussService;
+>>>>>>> Stashed changes
 
     //查询需求价格
     @ApiOperation(value="查询需求价格")
@@ -286,4 +285,26 @@ public class OrderController {
         return new Result<PageInfo>(true, StatusCode.OK, "上架成功");
     }
 
+
+    @GetMapping("/selectComment/{id}")
+    public Result selectComment(@PathVariable("id") Integer id) {
+        List<Discuss> discuss = discussService.selectByOrderId(id);
+        return new Result(true, StatusCode.OK, "查询成功", discuss);
+    }
+
+    @PostMapping("/addComment/{id}/{content}")
+    public Result addComment(@PathVariable("id") Integer id,@PathVariable("content") String content) {
+        //获取登陆的用户名
+        UserDetails principal = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String name = principal.getUsername();
+
+        Discuss discuss = new Discuss();
+        discuss.setOrderId(id);
+        discuss.setOwnName(name);
+        discuss.setCreateTime(new Date());
+        discuss.setContent(content);
+
+        discussService.add(discuss);
+        return new Result(true, StatusCode.OK, "添加成功", discuss);
+    }
 }
